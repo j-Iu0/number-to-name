@@ -154,7 +154,7 @@ fn decimal(i: &[u8]) -> Option<String> {
     if pointer == i.len() {
         None
     } else {
-        i.iter().step_by(pointer).for_each(|item| result = format!("{} {}", make_name((*item as u8 - CODE8).into()), result));
+        i.iter().skip(pointer).for_each(|item| result = format!("{} {}", make_name((*item as u8 - CODE8).into()), result));
         Some(result)
     }
 }
